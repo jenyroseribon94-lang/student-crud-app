@@ -1,3 +1,5 @@
+const searchInput =
+document.getElementById("searchInput");
 const API_URL = "/api/students";
 
 const studentForm = document.getElementById("studentForm");
@@ -326,3 +328,22 @@ function showMessage(text, isError = false) {
 // LOAD DATA WHEN PAGE OPENS
 
 loadStudents();
+// SEACRH STUDENTS
+searchInput.addEventListener("input", function () {
+    const searchText =
+    searchInput.value.toLowerCase();
+    const rows=
+    studentTableBody.querySelectorAll("tr");
+    rows.forEach(row=>{
+        const rowText =
+row.textContent.toLowerCase();
+if
+(rowText.includes(searchText)){
+    row.style.display ="";
+} else {
+    row.style.display =
+    "none";
+}
+    });
+});
+    
